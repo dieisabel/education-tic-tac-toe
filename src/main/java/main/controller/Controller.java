@@ -33,11 +33,14 @@ public class Controller {
             if (playerTurn) {
                 if (playerMove(tile)) {
                     playerTurn = false;
-                };
+                }
             } else {
                 computerMove();
                 playerTurn = true;
             }
+        }
+        if (!gameField.hasEmptyCells()) {
+            gameView.showEndGameAlert("Withdraw");
         }
         gameView.drawGrid(pane, gameField, this);
     }
